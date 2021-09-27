@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: hsl(240, 78%, 98%);
+  color: hsl(232, 13%, 33%);
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;;
+  font-weight: 700;
+  background: url(./images/bg-top.svg) no-repeat top right, 
+  url(./images/bg-bottom.svg) left bottom no-repeat; /*adicionando multiplos backgrounds*/
+}
+
+.titulo {
+  grid-area: titulo;
+  color: hsl(233, 13%, 49%);
+}
+
+nav {
+  grid-area: opcoes;
+}
+
+.basico {
+  grid-area: basico;
+}
+
+.profissional {
+  grid-area: profissional;
+}
+
+.mestre {
+  grid-area: mestre;
+}
+
+.conteudo {
+  display: grid;
+  grid-template-columns: 33.3% 1fr 33.3%;
+  grid-template-rows: 80px 50px 1fr;
+  grid-template-areas: 
+  'titulo titulo titulo'
+  'opcoes opcoes opcoes'
+  'basico profissional mestre';     
+}
+
+div h1 {
+  padding: 2vh;
+}
+
+.basico, .mestre, .profissional {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;     
+  margin-top: 20px;
+}
+
+.basico, .mestre {
+  width: 300px;
+  background-color: hsl(240, 78%, 98%);
+  box-shadow:  3px -2px 20px rgba(211, 208, 208, 0.884);
+  border-radius: 10px; 
+  height: 45vh;
+  margin-top: 32px;
+}
+
+.profissional {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow:  5px -2px 3px rgba(211, 208, 208, 0.884);
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  color: hsl(240, 78%, 98%);
+  height: 48vh;
+}
+
+.profissional h4 {
+  margin-top: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5vh;
+}
+
+nav a {
+  text-decoration: none;
+  color: hsl(233, 13%, 49%);
+  padding: 5px 20px;
+}
+
+input[type="checkbox"] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+label {
+  width: 63px;
+  height: 32px;
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+label::after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  top: 3px;
+  left: 5px;
+  background: #e8f5f7;
+  position: absolute;
+  border-radius: 70px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: hsl(236, 72%, 82%);
+}
+
+input:checked + label:after {
+  left: calc(100% - 10px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 28px;
+}
+
+span {
+  font-size: 6vh;
+}
+
+div a {
+  color: hsl(240, 78%, 98%);
+  text-decoration: none;
+  background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  padding: 10px 70px;
+  border-radius: 10px;    
+  margin-bottom: 20px;
+}
+
+div a:hover {
+  background: hsl(240, 78%, 98%);
+  color: hsl(237, 63%, 64%);
+  border: thin solid hsl(232, 13%, 33%);
+}
+
+#saibamais {
+  margin-bottom: 20px;
+}
+
+#info {
+  color: hsl(237, 63%, 64%);
+  background: hsl(240, 78%, 98%);
+}
+
+#info:hover {
+  background:  hsl(237, 63%, 64%);
+  color: hsl(240, 78%, 98%);
+  border: thin solid hsl(240, 78%, 98%);
+}
+
+p {
+  padding: 15px;
+  border-top: thin outset hsl(234, 14%, 84%);
+}
+
+.descricao {
+  border-bottom: thin inset hsl(234, 14%, 84%) ;
+}
+
+@media (min-width: 375px) and (max-width:1440px) { 
+  .conteudo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body {
+    height: auto;
+    width: auto;
+    padding: 4vh;
+  }
+
+  nav {
+    padding: 10px;
+  }
+
+  .basico, .profissional, .mestre {
+    height: 350px;
+  }
+}
